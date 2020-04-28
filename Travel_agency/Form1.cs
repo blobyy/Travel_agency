@@ -19,9 +19,9 @@ namespace Travel_agency
             string query = "SELECT * FROM trips";
 
             ResultSQL result = new ResultSQL();
-            result.name = "elo";
-            List<ResultSQL> kurwa = new List<ResultSQL>();
-            kurwa.Add(result);
+            result.name = "testy";
+            List<ResultSQL> test = new List<ResultSQL>();
+            test.Add(result);
             DataBaseConnect baza = new DataBaseConnect();
             //List_new.DataSource = baza.Select(query);
             foreach (var p in baza.Select(query))
