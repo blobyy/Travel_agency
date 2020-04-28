@@ -18,12 +18,11 @@ namespace Travel_agency
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            DataBaseConnect baza = new DataBaseConnect();
-            string komenda = "INSERT INTO `trips` (`Name`, `Destination`, `Date_start`, `Date_end`) VALUES ('testghghghghg', 'testownia', '2020-04-01', '2020-04-16')";
-            baza.Insert(komenda);
+           
 
+            string query = "SELECT * FROM tableinfo";
 
-
+            
 
 
 

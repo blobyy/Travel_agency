@@ -89,28 +89,82 @@ namespace Travel_agency
             }
         }
 
-        
 
 
-        public void Update()
+
+        public List<ResultSQL> Select(string query)
         {
             
+
+            //Create a list to store the result
+            List<string> list = new List<string>();
+            List<ResultSQL> result = new List<ResultSQL>();
+            
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["Name"] + "");
+                    list.Add(dataReader["Destination"] + "");
+                    list.Add(dataReader["Date_start"] + "");
+                    list.Add(dataReader["Date_end"] + "");
+                    result.Add(new ResultSQL(list));
+                    list.Clear();
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+               
+                //return list to be displayed
+                return result;
+            }
+            else
+            {
+                return result;
+            }
         }
-
-        public void Delete()
-        {
-
-        }
-
-
-
-
-
-
 
 
 
 
 
     }
+
+
+   
+    public class ResultSQL
+    {
+
+    public string name { get; set; }
+    public string destination { get; set; }
+    public string start { get; set; }
+    public string end { get; set; }
+
+
+    public ResultSQL()
+        {
+
+        }
+
+    public ResultSQL(List<String> lista)
+    {
+            this.name = lista[0];
+            this.destination = lista[1];
+            this.start = lista[2];
+            this.end = lista[3];
+    }
 }
+}
+
+
+
