@@ -13,11 +13,21 @@ namespace Travel_agency
 {
     public partial class Form1 : Form
     {
+        public bool aktyw = true;
         public Form1()
         {
             InitializeComponent();
-            string query = "SELECT * FROM trips";
+            //string query = "SELECT * FROM trips WHERE Name LIKE '" + textBox1.Text + "%'";
+            
 
+            
+        }
+
+        private void Search_Button_Click(object sender, EventArgs e)
+        {
+            string query = "SELECT * FROM trips WHERE Name LIKE '" + textBox1.Text + "%' AND Destination LIKE '" + textBox2.Text + "%' AND Date_start LIKE '" + dateTimePicker1.Text + "%' AND Date_end LIKE '" + dateTimePicker2.Text + "%'";
+            //MessageBox.Show(dateTimePicker1.Text);
+            List_new.Clear();
             ResultSQL result = new ResultSQL();
             result.name = "testy";
             List<ResultSQL> test = new List<ResultSQL>();
@@ -32,17 +42,6 @@ namespace Travel_agency
                 List_new.Items.Add(p.end).SubItems.Add(p.end.ToString());
             }
         }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-
-        
-
-
-
     }
 
 
