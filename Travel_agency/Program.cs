@@ -14,14 +14,26 @@ namespace Travel_agency
         [STAThread]
         static void Main()
         {
+            
+
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
 
            
 
-            string query = "SELECT * FROM tableinfo";
+            Application.Run(new Form3());
 
+
+            
+            
+            
+
+           
+
+            
+            
             
 
 

@@ -115,6 +115,7 @@ namespace Travel_agency
                     list.Add(dataReader["Destination"] + "");
                     list.Add(dataReader["Date_start"] + "");
                     list.Add(dataReader["Date_end"] + "");
+                    list.Add(dataReader["id"] + "");
                     result.Add(new ResultSQL(list));
                     list.Clear();
                 }
@@ -149,9 +150,10 @@ namespace Travel_agency
     public string destination { get; set; }
     public string start { get; set; }
     public string end { get; set; }
+    public string id { get; set; }
 
 
-    public ResultSQL()
+        public ResultSQL()
         {
 
         }
@@ -162,6 +164,7 @@ namespace Travel_agency
             this.destination = lista[1];
             this.start = lista[2];
             this.end = lista[3];
+            this.id = lista[4];
     }
 }
 }

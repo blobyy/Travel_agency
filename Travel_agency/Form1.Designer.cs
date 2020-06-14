@@ -38,16 +38,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.List_new = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Search_Button
             // 
-            this.Search_Button.Location = new System.Drawing.Point(898, 169);
+            this.Search_Button.Location = new System.Drawing.Point(527, 229);
             this.Search_Button.Name = "Search_Button";
-            this.Search_Button.Size = new System.Drawing.Size(75, 23);
+            this.Search_Button.Size = new System.Drawing.Size(120, 42);
             this.Search_Button.TabIndex = 0;
             this.Search_Button.Text = "Wyszukaj";
             this.Search_Button.UseVisualStyleBackColor = true;
+            this.Search_Button.Click += new System.EventHandler(this.Search_Button_Click);
             // 
             // textBox1
             // 
@@ -58,6 +60,8 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker1.Location = new System.Drawing.Point(232, 172);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
@@ -72,6 +76,9 @@
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dateTimePicker2.Location = new System.Drawing.Point(464, 172);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
@@ -103,7 +110,6 @@
             this.label3.Size = new System.Drawing.Size(93, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "Data zakończenia";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -116,18 +122,32 @@
             // 
             // List_new
             // 
+            this.List_new.FullRowSelect = true;
+            this.List_new.GridLines = true;
             this.List_new.HideSelection = false;
             this.List_new.Location = new System.Drawing.Point(12, 229);
+            this.List_new.MultiSelect = false;
             this.List_new.Name = "List_new";
-            this.List_new.Size = new System.Drawing.Size(366, 195);
+            this.List_new.Size = new System.Drawing.Size(430, 195);
             this.List_new.TabIndex = 10;
             this.List_new.UseCompatibleStateImageBehavior = false;
+            this.List_new.View = System.Windows.Forms.View.Details;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(527, 299);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 43);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Kup";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(985, 454);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.List_new);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -157,6 +177,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView List_new;
+        private System.Windows.Forms.Button button1;
     }
 }
 
