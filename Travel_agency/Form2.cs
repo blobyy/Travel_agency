@@ -1,7 +1,10 @@
-﻿using System;
+﻿using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -87,6 +90,37 @@ namespace Travel_agency
             DataBaseConnect baza = new DataBaseConnect();
             baza.Insert(query);
             List_new.SelectedItems[0].Remove();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DataBaseConnect baza = new DataBaseConnect();
+            string query = "SELECT * FROM trips WHERE id = ' " + List_new.SelectedItems[0].SubItems[4].Text + "'";
+
+
+           
+
+            PdfDocument document = new PdfDocument();
+            document.Info.Title = "Bilet";
+
+            PdfPage page = document.AddPage();
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+            XFont font = new XFont("Verdena", 20, XFontStyle.BoldItalic);
+
+            string client = baza.Select(query)[0].Buyer;
+
+            string text = "Nazwa ->" + List_new.SelectedItems[0].SubItems[0].Text + " ";
+
+            string place = "Miejscowosc ->" + List_new.SelectedItems[0].SubItems[1].Text;
+
+            string date = " Data ->" + List_new.SelectedItems[0].SubItems[2].Text + " " + List_new.SelectedItems[0].SubItems[3].Text;
+            gfx.DrawString(client, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height - 50), XStringFormats.Center);
+            gfx.DrawString(text, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height), XStringFormats.Center);
+            gfx.DrawString(place, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height + 40), XStringFormats.Center);
+            gfx.DrawString(date, font, XBrushes.Black, new XRect(0, 0, page.Width, page.Height + 80), XStringFormats.Center);
+            const string filename = "Bliet.pdf";
+            document.Save(filename);
+            Process.Start(filename);
         }
     }
 }

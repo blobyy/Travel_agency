@@ -20,7 +20,8 @@ namespace Travel_agency
             
 
         }
-        
+
+        Logon test = new Logon();
         private void LoginButton_Click(object sender, EventArgs e)
         {
             
@@ -31,7 +32,7 @@ namespace Travel_agency
 
             if (LoginBox1.Text == login && PasswordBox1.Text == password)
             {
-
+                Logon.login = LoginBox1.Text;
                 LoadForm(new Form1());
                 
             }
